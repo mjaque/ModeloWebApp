@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
+
+import datos.ORM;
+
 /**
  * Servlet implementation class Login
  */
@@ -32,6 +36,8 @@ public class Login extends HttpServlet {
 		
 		//Control de Acceso
 		RequestDispatcher rd;
+		
+		Session sesion = ORM.INSTANCE.openSession();
 		
 		//Fallo de Acceso
 		String error = "Fallo de login";
