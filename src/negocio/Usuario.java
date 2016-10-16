@@ -1,17 +1,22 @@
 package negocio;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private long id;
+	@Column(unique = true, nullable = false, length = 50, name = "nombre")
 	private String nombre;
-	
+	@Column(nullable = false, length = 32, name = "clave")
+	private String clave;
 	
 	public void setId(Integer id) {
 		this.id = id;
@@ -19,12 +24,11 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	public String getNombre() {
 		return nombre;
 	}
-	
 	
 }
