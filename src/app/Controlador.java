@@ -30,7 +30,6 @@ public class Controlador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("TRAZA GET 02");
 		String accion = request.getParameter("accion");
 		System.out.println("Recibida acción: " + accion);
 		RequestDispatcher rd;
@@ -43,13 +42,22 @@ public class Controlador extends HttpServlet {
 			case "login":
 				rd = request.getRequestDispatcher("/Login");
 				break;
+			case "ir_registro":
+				rd = request.getRequestDispatcher("/registro.jsp");
+				break;
+			case "registro":
+				rd = request.getRequestDispatcher("/Registro");
+				break;
+			case "baja":
+				rd = request.getRequestDispatcher("/Baja");
+				break;
+			//Resto de acciones
 			default:
+				System.out.println("Acción desconocida: " + accion);
 				rd = request.getRequestDispatcher("/login.jsp");
 			}
 		}
 		rd.forward(request, response);
-
-		response.getWriter().append("3Served at: ").append(request.getContextPath());
 
 	}
 

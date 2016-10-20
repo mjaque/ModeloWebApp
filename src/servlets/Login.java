@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("TRON: Login servlet");
+		System.out.println("Cargado Login servlet");
 
 		// Control de Acceso
 		Usuario usuario = DAOUsuario.Login(request.getParameter("usuario"), request.getParameter("clave"));
